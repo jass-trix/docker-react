@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+  
+before_install:
+  - docker build -t jasstrix/docker-react -f Dockerfile.dev .
+
+scripts:
+  - docker run jasstrix/docker-react npm run test -- --coverage
